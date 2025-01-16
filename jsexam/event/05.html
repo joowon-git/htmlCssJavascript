@@ -1,0 +1,26 @@
+<!-- 이벤트 버블링 : 안쪽에서 바깥쪽으로 전파 -->
+<!-- 캡쳐링 : 바깥쪽에서 안쪽으로 전파되는 -->
+<!-- 이벤트 전파 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      * {
+        border: 3px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div onclick="alert('outer-div');">
+      <div onclick="alert('inner-div');">
+        <div onclick="alert('inner-inner_div');">
+          <h1 onclick="alert('h1');">
+            <p onclick="alert('p');">p태그</p>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

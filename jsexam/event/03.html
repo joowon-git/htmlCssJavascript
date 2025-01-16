@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event3</title>
+  </head>
+  <body>
+    <button>클릭</button>
+    <button id="hi_btn">안녕</button>
+    <div></div>
+
+    <script>
+      function changeColor() {
+        const color = prompt();
+        document.body.style.backgroundColor = color;
+        // 태그에 onClick은 별로 적합하지 않은(?) 아래 방식이 표준 방식이다.
+      }
+
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", changeColor);
+
+      function changeText() {
+        const promptValue = prompt();
+
+        const divTag = document.querySelector("div");
+        // divTag.innerText = promptValue;
+        divTag.innerHTML = promptValue;
+      }
+      const btn2 = document.getElementById("hi_btn");
+      btn2.addEventListener("click", changeText);
+
+      document.getElementById("hi_btn").addEventListener("click", () => {
+        const msg = prompt();
+        document.querySelector("div").innerHTML = msg;
+      });
+    </script>
+  </body>
+</html>

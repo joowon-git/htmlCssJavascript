@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event2</title>
+  </head>
+  <body>
+    <button id="button">클릭</button>
+    <button class="btn">클릭2</button>
+    <button class="btn">클릭3</button>
+
+    <script>
+      const button = document.querySelector("button"); // 첫 번째 만난 요소를 리턴
+      console.log(button);
+      const buttons = document.querySelectorAll("button"); // 모든 요소를 찾아서 배열을 리턴
+      console.log(buttons);
+
+      buttons[0].addEventListener("click", () => {
+        alert("button1");
+      });
+
+      buttons[1].addEventListener("click", () => {
+        alert("button2");
+      });
+
+      const hi = () => {
+        alert("hi");
+      };
+
+      const btn_id = document.getElementById("button");
+      console.log(btn_id);
+
+      const btns = document.getElementsByTagName("button");
+      console.log(btns);
+      btns[0].addEventListener("click", hi);
+      const btn_class = document.getElementsByClassName("btn");
+      btn_class[0].addEventListener("click", hi);
+      console.log(btn_class);
+    </script>
+  </body>
+</html>

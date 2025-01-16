@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event8</title>
+  </head>
+  <body>
+    <form action="06.html" id="myform">
+      <label for="name">이름</label>
+      <input type="text" name="name" id="name" /><br />
+      <label for="password">비밀번호</label>
+      <input type="text" name="password" id="password" /><br />
+      <label for="checkPassword">비밀번호 확인</label>
+      <input type="text" name="checkPassword" id="checkPassword" /><br />
+      <input type="submit" value="등록" />
+    </form>
+    <script>
+      // 이름이 입력되지 않았다면... 이름을 입력하세요. 라고 메시지를 출력!!
+
+      // 비밀번호가 입력되지 않았거나, 두개의 입력값이 다르다면 알맞은
+      // 메시지를 출력할 수 있도록 코드를 만들어 주세요.
+      // 이벤트, submit - 이벤트 네임
+      // 이벤트 객체가 가지고 있는 preventDefault() 메서드를 이용하면 기본 이벤트를 막아줌.
+      // input에 들어있는 값은 input요소.value
+      // 요소.focus() 원하는 요소에 커서를 위치시켜줘요.
+
+      const form = document.getElementById("myform");
+      const nameInput = document.getElementById("name");
+      const passwordInput = document.getElementById("password");
+      const checkPasswordInput = document.getElementById("checkPassword");
+
+      const checkValue = (e) => {
+        // e.preventDefault();   전체적으로 무효화 시키는 경우에는 마지막에 form 제출 코드 입력해 줘야 한다.
+        // form.submit(); 을 맨 마지막에
+
+        if (nameInput.value.trim() === "") {
+          alert("이름을 입력하세요.");
+          nameInput.focus();
+          e.preventDefault();
+          return;
+        }
+
+        if (passwordInput.value.trim() === "") {
+          alert("비밀번호를 입력하세요.");
+          passwordInput.focus();
+          e.preventDefault();
+          return;
+        }
+
+        if (checkPasswordInput.value.trim() === "") {
+          alert("비밀번호 확인을 입력하세요.");
+          checkPasswordInput.focus();
+          e.preventDefault();
+          return;
+        }
+
+        if (passwordInput.value !== checkPasswordInput.value) {
+          alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+          passwordInput.focus();
+          e.preventDefault();
+          return;
+        }
+
+        // form.submit();
+      };
+
+      form.addEventListener("submit", checkValue);
+    </script>
+  </body>
+</html>

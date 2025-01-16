@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event8</title>
+  </head>
+  <body>
+    <form action="06.html">
+      <label for="name">이름</label>
+      <input type="text" name="name" id="name" /><br />
+      <label for="password">비밀번호</label>
+      <input type="text" name="password" id="password" /><br />
+      <label for="checkPassword">비밀번호 확인</label>
+      <input type="text" name="checkPassword" id="checkPassword" /><br />
+      <input type="submit" value="등록" />
+    </form>
+    <script>
+      // 이름이 입력되지 않았다면... 이름을 입력하세요. 라고 메시지를 출력!!
+      const submitData = (e) => {
+        const name = document.getElementById("name");
+        const password = document.getElementById("password");
+        const checkPassword = document.getElementById("checkPassword");
+
+        if (!name.value) {
+          e.preventDefault();
+          alert("이름을 입력하세요.");
+
+          name.focus();
+
+          return;
+        }
+
+        if (!password.value || password.value !== checkPassword.value) {
+          e.preventDefault();
+          alert("비밀번호와 비밀번호 확인을 다시 입력해 주세요.");
+
+          password.focus();
+          return;
+        }
+      };
+
+      document.querySelector("form").addEventListener("submit", submitData);
+
+      // 비밀번호가 입력되지 않았거나, 두개의 입력값이 다르다면 알맞은
+      // 메시지를 출력할 수 있도록 코드를 만들어 주세요.
+      // 이벤트, submit - 이벤트 네임
+      // 이벤트 객체가 가지고 있는 preventDefault() 메서드를 이용하면 기본 이벤트를 막아줌.
+      // input에 들어있는 값은 input요소.value
+      // 요소.focus() 원하는 요소에 커서를 위치시켜줘요.
+    </script>
+  </body>
+</html>

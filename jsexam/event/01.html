@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event1</title>
+  </head>
+  <body>
+    <button id="btn1">클릭</button>
+    <button id="btn2">클릭2</button>
+    <script>
+      // 이벤트
+      // 소스(대상).addEventListener(eventName, eventHandler, ToCapture)
+      // eventName - click, drag,
+      // eventHandler - 이벤트가 발생되었을 때 할일. 함수로 전달
+      // toCapture - 기본값 false 생략 가능. (캡쳐링, 버블링) -> 이벤트가 전파되는 방식
+      const btn = document.querySelector("button");
+      console.log(btn);
+      // btn.addEventListener("click", () => alert("button clicked!"));
+      const hi = () => {
+        alert("hello");
+      };
+      btn.addEventListener("click", hi);
+
+      const btn2 = document.querySelector("#btn2");
+      console.log(btn2);
+      btn2.addEventListener("click", () => {
+        const date = new Date();
+        const formmattedDate = date.toLocaleDateString("ko-KR", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        });
+        alert(formmattedDate);
+      });
+    </script>
+  </body>
+</html>

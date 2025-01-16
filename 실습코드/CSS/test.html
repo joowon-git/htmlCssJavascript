@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>선택자의 종류</title>
+    <style type="text/css">
+      /*모든것을 의미하는 선택자는 권장되지 않음(*선택자)*/
+      * {
+        color: blue;
+      }
+      /*특정 태그가 쓰인 모든 요소에 스타일을 적용(태그선택자)*/
+      p {
+        color: #f62727;
+      }
+      /* .클래스 선택자는 태그 대신 클래스 이름을 사용(클래스 선택자)*/
+      .class-selector,
+      .class-selector2 {
+        color: darkgreen;
+      }
+      /* 우선순위를 지정하는 선택자, 문서 안에서 한 번만 적용(ID선택자)*/
+      #id-selector {
+        color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="type-selector">
+      <h1>선택자란?</h1>
+      <p>빨강색</p>
+      <p class="class-selector">어두운초록색</p>
+      <p class="class-selector" id="id-selector">무슨색</p>
+      <p id="id-selector">보라색</p>
+      <p class="class-selector2">2번째 class선택자</p>
+    </div>
+  </body>
+</html>

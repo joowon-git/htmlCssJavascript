@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const dog = {
+        name: "멍멍이",
+        sound: "멍멍!!",
+        say: function () {
+          console.log(this.sound);
+          console.log(`dog 객체 안에서의 :: ${this}`);
+        },
+      };
+
+      dog.say();
+
+      function test() {
+        console.log(this);
+      }
+
+      test();
+    </script>
+  </body>
+</html>
